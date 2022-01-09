@@ -1,0 +1,124 @@
+@import '../../styles/pallet.scss' ;
+
+$top-spacing:18rem;
+$primary-background:$primary-color;
+$page-background-color:$secondary-color;
+$sizes:10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100;
+html,body{
+    background-color: $page-background-color;
+}
+.landing-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow:row wrap;
+    align-content:baseline ;
+    background-color: $page-background-color;
+    *{
+        transition:all 1s , height 0.5s ease 0.8s;
+    }
+    .indicator{
+        width: 100%;
+        height: 20px;
+        background-color: $primary-background;
+    }
+    .indicator.scroll ~ .left{
+        transform: scaleX(0);
+        height: 0;
+    }
+    .indicator.scroll ~ .right{
+        transform: scaleX(0);
+        height: 0;
+    }
+    .indicator.scroll ~ .content{
+        opacity: 1;
+        *{
+            height: auto;
+        }
+        display: flex;
+        background-color: $page-background-color;
+        padding: 45px;
+        padding-top: 100px;
+        margin: 20px;
+    }
+    .left,.right{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: baseline;
+        font-family: 'Roboto Mono', monospace;
+        // font-family: 'Nunito Sans', sans-serif;
+        font-size: 100px;
+        color: $primary-accent;
+    }
+    .left{
+        transform-origin: left;
+        background-color: $primary-color;
+        .greet{
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            width: 100%;
+            height: $top-spacing;
+
+        }
+        .first-half{
+            text-align: right;
+            width: 100%;
+            align-self: center;
+            justify-self: right;
+        }
+    }
+    .right{
+        transform-origin: right;
+        background-color: $primary-color;
+        .second-half{
+            padding-top: $top-spacing;
+            align-self: center;
+        }
+    }
+    .content{
+        height: 100%;
+        width: 100%;
+        display: none;
+        opacity: 0;
+        flex-flow: column;
+        padding: 10px;
+        @each $var in $sizes {
+            .card-#{$var} {
+                padding: 20px ;
+                background-color: $primary-color;
+                width: calc(#{$var}% - 40px);
+                margin-bottom: 20px;
+                font-family: 'Roboto Mono', monospace;
+                font-size: 28px;
+                color: $secondary-accent;
+                display: flex;
+                flex-flow: column;
+                &.left{
+
+                }
+                &.center{
+                    align-self: center;
+                }
+                &.right{
+                    align-self: end;
+                }
+                .title{
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: $primary-accent;
+                    margin-bottom: 20px;
+                }
+                *{
+                    margin: 0;
+                }
+                &:last-child{
+                    margin-bottom: 50px;
+                }
+              }    
+        }
+        
+    }
+}

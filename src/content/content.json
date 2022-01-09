@@ -1,0 +1,37 @@
+{
+    "Front End": [
+        "ReactJs(web), MaterialUI",
+        "Angular1.x, JQuery",
+        "SCSS, Bootstrap",
+        "JSP, OpenText",
+        "HTML, JS, CSS, Webcomponents,WASM",
+        "Qt/QML"
+    ],
+    "Backend": [
+        "JavaEE webservices (JAX-RS)",
+        "NodeJs",
+        "Rust"
+    ],
+    "Database": [
+        "SQL",
+        "REDIS",
+        "LDAP"
+    ],
+    "OAuth2.0": [],
+    "Authentication/Autherization tools": [
+        "OKTA",
+        "CA Idm/siteminder"
+    ],
+    "Testing": [
+        "Selenium – Automation Testing",
+        "Locust – Load testing"
+    ],
+    "Devops": [
+        "Linux",
+        "Jenkins",
+        "Docker",
+        "Azure",
+        "Cloudflare",
+        "Swagger-UI"
+    ]
+}
