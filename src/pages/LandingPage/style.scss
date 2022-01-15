@@ -1,9 +1,6 @@
 @import '../../styles/pallet.scss' ;
 
-$top-spacing:18rem;
-$primary-background:$primary-color;
-$page-background-color:$secondary-color;
-$sizes:10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100;
+
 html,body{
     background-color: $page-background-color;
 }
@@ -41,7 +38,7 @@ html,body{
         padding-top: 100px;
         margin: 20px;
     }
-    .left,.right{
+    >.left,>.right{
         width: 50%;
         height: 100%;
         display: flex;
@@ -49,10 +46,10 @@ html,body{
         align-content: baseline;
         font-family: 'Roboto Mono', monospace;
         // font-family: 'Nunito Sans', sans-serif;
-        font-size: 100px;
+        font-size:6vw;
         color: $primary-accent;
     }
-    .left{
+    >.left{
         transform-origin: left;
         background-color: $primary-color;
         .greet{
@@ -70,7 +67,7 @@ html,body{
             justify-self: right;
         }
     }
-    .right{
+    >.right{
         transform-origin: right;
         background-color: $primary-color;
         .second-half{
@@ -85,41 +82,14 @@ html,body{
         opacity: 0;
         flex-flow: column;
         padding: 10px;
-        @each $var in $sizes {
-            .card-#{$var} {
-                padding: 20px ;
-                background-color: $primary-color;
-                box-shadow: 1px 2px 3px rgba(0,0,0,0.25);
-                width: calc(#{$var}% - 40px);
-                margin-bottom: 20px;
-                font-family: 'Roboto Mono', monospace;
-                font-size: 28px;
-                color: $secondary-accent;
-                display: flex;
-                flex-flow: column;
-                &.left{
-
-                }
-                &.center{
-                    align-self: center;
-                }
-                &.right{
-                    align-self: end;
-                }
-                .title{
-                    font-size: 32px;
-                    font-weight: 700;
-                    color: $primary-accent;
-                    margin-bottom: 20px;
-                }
-                *{
-                    margin: 0;
-                }
-                &:last-child{
-                    margin-bottom: 50px;
-                }
-              }    
+        .vertical-center{
+            justify-content: center;
         }
-        
+        .quote{
+            align-self: center;
+            justify-content: center;
+            vertical-align: middle;
+        }
+                
     }
 }
