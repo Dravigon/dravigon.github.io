@@ -21,3 +21,10 @@ $grid-breakpoints: (
   xl: 1200px,
   xxl: 1400px
 );
+
+
+@mixin screen-max($max) { 
+    @media (max-width: $max) { 
+      @content 
+    } 
+  };

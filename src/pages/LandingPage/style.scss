@@ -31,12 +31,16 @@ html,body{
         opacity: 1;
         *{
             height: auto;
+            overflow-wrap: anywhere;
         }
         display: flex;
         background-color: $page-background-color;
         padding: 45px;
         padding-top: 100px;
         margin: 20px;
+        @include screen-max(map-get($grid-breakpoints,'md')){
+            margin: 0;
+        }
     }
     >.left,>.right{
         width: 50%;
@@ -90,6 +94,6 @@ html,body{
             justify-content: center;
             vertical-align: middle;
         }
-                
+        
     }
 }

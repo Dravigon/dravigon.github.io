@@ -1,9 +1,13 @@
 
+@use "sass:map";
+
 @import '../../styles/pallet.scss' ;
 
 .cards-container{
     display: flex;
     flex-flow: row;
+
+    
     [class^='card'] {
         margin-right: 20px;
         &:last-child{
@@ -12,9 +16,42 @@
         }
     }
     
+    @include screen-max(map-get($grid-breakpoints,'md')){
+        flex-flow: column;
+        [class^='card'] {
+            margin-right: 0px;
+            &:last-child{
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    }
 }
 
 @each $var in $sizes {
+    
+        @each $bp-name,$bp-value in $grid-breakpoints {
+            @include screen-max($bp-value){
+                // @debug card-#{$bp-name}-#{$var};
+            .card-#{$bp-name}-#{$var} {
+                max-width: $bp-value;
+                width: calc(#{$var}% - 40px);
+            }
+            .card-#{$var}{
+                &.#{$bp-name}-left{
+                    align-self: flex-start;
+                }
+                &.#{$bp-name}-center{
+                    align-self: center;
+                }
+                &.#{$bp-name}-right{
+                    align-self: end;
+                }
+            }
+        }
+
+    }
+
     .card-#{$var} {
         padding: 20px ;
         background-color: $primary-color;

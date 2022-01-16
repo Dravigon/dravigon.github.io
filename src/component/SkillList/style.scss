@@ -1,5 +1,13 @@
+@import '../../styles/pallet.scss';
+
 .skill-container{
     display: flex;
     flex-direction: row;
     align-self: center;
+}
+
+@media (max-width: 940px) {
+    .skill-container{
+        flex-direction: column;
+    }
 }

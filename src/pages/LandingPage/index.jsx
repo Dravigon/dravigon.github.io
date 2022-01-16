@@ -58,7 +58,7 @@ const LandingPage = () => {
         <div className="content">
             <div className="about cards-container vertical-center"
                 ref={introDivRef}>
-                <Card width="30">
+                <Card width="30" customClass="card-sm-100">
                     <div className="title">
                         About Me
                     </div>
@@ -66,14 +66,14 @@ const LandingPage = () => {
                         A passionate developer who likes to work with a lot of technologies, a Hobby developer, a pro open-source advocate, a tech-enthusist and a part time tech journalist.
                     </div>
                 </Card>
-                <Card width="70" type="secondary" customClass="vertical-center">
+                <Card width="70" type="secondary" customClass="vertical-center card-sm-100 md-center">
                     <div className="title">A quote which i like</div>
                     <div className="decorative-text large quote flex">
                     A jack of all trades is a master of none, but oftentimes better than a master of one
                     </div>
                 </Card>
             </div>
-            <div className="card-70 right experience">
+            <div className="card-70 right md-center experience card-sm-100">
                 <div className="title">Domains i have worked on</div>
                 <ul>
                     <li>Front end - Web and App(linux)</li>
@@ -84,7 +84,7 @@ const LandingPage = () => {
                     <li>CI C/D - App deployment  performance testing and basic automation</li>
                 </ul>
             </div>
-            <div className="card-75 experience">
+            <div className="card-75 experience card-sm-100">
                 <div className="title">My Hobby projects</div>
                 <div>Whatsapp analyser</div>
                 <div>Letter</div>
@@ -94,7 +94,7 @@ const LandingPage = () => {
                     <a href="https://github.com/Dravigon/">For more please visit my github--></a>
                 </div>
             </div>
-            <div className="card-100 skills">
+            <div className="card-100 skills card-sm-100">
                 <div className="title">
                     What Ive worked with
                 </div>
