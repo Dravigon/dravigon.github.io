@@ -3,6 +3,7 @@ import '../../component/SkillList'
 import SkillList from "../../component/SkillList";
 import Card from "../../component/Card"
 import './style.scss'
+import Experience from "../../component/Experience";
 const LandingPage = () => {
     const indicatorRef = useRef(null);
     const introDivRef = useRef(null);
@@ -48,11 +49,16 @@ const LandingPage = () => {
         <div className="indicator"
             ref={indicatorRef}></div>
         <div className="left">
+            <div className="rotated-menu">
+                <a>About</a>
+                <a>Projects</a>
+                <a>Hobbies</a>
+            </div>
             <div className="greet">Hi</div>
-            <div className="first-half">I'm Dr</div>
+            <div className="first-half">I'm Dravid</div>
         </div>
         <div className="right">
-            <div className="second-half">avid</div>
+            <div className="rotated-menu">To know more about me --></div>
         </div>
         {/* <div className="indicator"></div> */}
         <div className="content">
@@ -84,16 +90,7 @@ const LandingPage = () => {
                     <li>CI C/D - App deployment  performance testing and basic automation</li>
                 </ul>
             </div>
-            <div className="card-75 experience card-sm-100">
-                <div className="title">My Hobby projects</div>
-                <div>Whatsapp analyser</div>
-                <div>Letter</div>
-                <div>Tortinental</div>
-                <div>Sudoku solver</div>
-                <div>
-                    <a href="https://github.com/Dravigon/">For more please visit my github--></a>
-                </div>
-            </div>
+            <Experience></Experience>
             <div className="card-100 skills card-sm-100">
                 <div className="title">
                     What Ive worked with

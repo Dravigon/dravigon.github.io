@@ -1,99 +1,142 @@
-@import '../../styles/pallet.scss' ;
+@import '../../styles/pallet.scss';
 
 
-html,body{
+html,
+body {
     background-color: $page-background-color;
 }
-.landing-container{
+.landing-container {
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-flow:row wrap;
-    align-content:baseline ;
+    flex-flow: row wrap;
+    align-content: baseline;
     background-color: $page-background-color;
-    *{
-        transition:all 1s , height 0.5s ease 0.8s;
+    * {
+        transition: all 1s, height 0.5s ease 0.8s;
     }
-    .indicator{
+    .indicator {
         width: 100%;
         height: 20px;
         background-color: $primary-background;
     }
-    .indicator.scroll ~ .left{
+    .indicator.scroll ~ .left {
         transform: scaleX(0);
         height: 0;
     }
-    .indicator.scroll ~ .right{
+    .indicator.scroll ~ .right {
         transform: scaleX(0);
         height: 0;
     }
-    .indicator.scroll ~ .content{
+    .indicator.scroll ~ .content {
         opacity: 1;
-        *{
+        * {
             height: auto;
             overflow-wrap: anywhere;
         }
         display: flex;
         background-color: $page-background-color;
-        padding: 45px;
-        padding-top: 100px;
+        padding: 100px 45px 45px;
         margin: 20px;
-        @include screen-max(map-get($grid-breakpoints,'md')){
-            margin: 0;
-        }
     }
-    >.left,>.right{
-        width: 50%;
+    > .left,
+    > .right {
         height: 100%;
         display: flex;
         flex-flow: row wrap;
         align-content: baseline;
         font-family: 'Roboto Mono', monospace;
         // font-family: 'Nunito Sans', sans-serif;
-        font-size:6vw;
+        font-size: 6vw;
         color: $primary-accent;
+
     }
-    >.left{
+    > .left {
+        width: 90%;
         transform-origin: left;
         background-color: $primary-color;
-        .greet{
+        @include screen-max(map-get($grid-breakpoints,'md')) {
+            font-size: 15vw;
+        }
+        .rotated-menu {
+            transform-origin: center;
+            transform: translateX(-45%) translateY(50%) rotate(-90deg);
+
+            font-size: 20px;
+            width: 100vh;
+            @include screen-max(map-get($grid-breakpoints,'md')) {
+                position: relative;
+                z-index: 999;
+                transform: none;
+                a {
+                    text-decoration: underline;
+                }
+
+
+            }
+            a {
+                margin-left: 15px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .greet {
             display: flex;
             align-items: flex-end;
-            justify-content: center;
+            text-align: left;
             width: 100%;
             height: $top-spacing;
-
+            padding-left: calc(100% - 6vw * 12);
+            
         }
-        .first-half{
-            text-align: right;
+        .first-half {
+            text-align: left;
             width: 100%;
             align-self: center;
             justify-self: right;
+            padding-left: calc(100% - 6vw * 10);
+            @include screen-max(map-get($grid-breakpoints,'md')) {
+                padding-left: calc(100% - 6vw * 12);
+            }
         }
     }
-    >.right{
+    > .right {
+        width: 10%;
         transform-origin: right;
         background-color: $primary-color;
-        .second-half{
+        .second-half {
             padding-top: $top-spacing;
             align-self: center;
         }
+        .rotated-menu {
+            transform-origin: center;
+            transform: translateX(46%) translateY(-600%) rotate(90deg);
+            text-align: center;
+            font-size: 20px;
+            width: 100vh;
+            position: absolute;
+            z-index: 99;
+            bottom: 0;
+            right: 0;
+        }
     }
-    .content{
+    .content {
         height: 100%;
         width: 100%;
         display: none;
         opacity: 0;
         flex-flow: column;
         padding: 10px;
-        .vertical-center{
+        .vertical-center {
             justify-content: center;
         }
-        .quote{
+        .quote {
             align-self: center;
             justify-content: center;
             vertical-align: middle;
         }
-        
+
     }
 }
