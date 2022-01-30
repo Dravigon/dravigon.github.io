@@ -7,34 +7,27 @@ import Experience from "../../component/Experience";
 const LandingPage = () => {
     const indicatorRef = useRef(null);
     const introDivRef = useRef(null);
+    const projectsDivRef = useRef(null);
     const [toggleContent, setToggleContent] = useState(false);
 
-    const onScroll = () => {
-        if (toggleContent) 
-            return;
-        
+    useEffect(()=>{
+        console.log('toggle');
+        console.log({toggleContent})
 
-        setToggleContent(true);
-        const topPosition = indicatorRef.current.getBoundingClientRect().top;
-        console.log(topPosition);
-        if (topPosition < -10) {
+        if(toggleContent){
             indicatorRef.current.className = "indicator scroll";
-
-            function scrollToTargetAdjusted() {
-                introDivRef.current.scrollTo({block: "start"});
-                setTimeout(setToggleContent(false), 4000);
-            }
-            setTimeout(scrollToTargetAdjusted, 3000);
-
-        } else {
+        }
+        else{
             indicatorRef.current.className = "indicator";
+        }
 
-            function scrollToTargetAdjusted() {
-                indicatorRef.current.scrollTo({block: "start"});
-                setTimeout(setToggleContent(false), 4000);
-            }
-            setTimeout(scrollToTargetAdjusted, 2000);
-
+    },[toggleContent])
+    const onScroll = () => {
+        const topPosition = indicatorRef.current.getBoundingClientRect().top;
+        if (topPosition <= -10) {
+            setToggleContent(true);
+        } else {
+            setToggleContent(false)
         }
     }
     useEffect(() => { // effect
@@ -45,22 +38,32 @@ const LandingPage = () => {
         }
     }, []);
 
+    function scrollToAbout(){
+        console.log("clicked about")
+        window.scrollTo(0, 30); 
+        setTimeout(introDivRef.current.scrollTo({block: "start"}), 1500);    
+    }
+    function scrollToProject(){
+        console.log("clicked about")
+        window.scrollTo(0, 30); 
+        setTimeout(projectsDivRef.current.scrollIntoView({block: "start"}), 2000);    
+    }
+
     return (<div className="landing-container">
         <div className="indicator"
             ref={indicatorRef}></div>
         <div className="left">
             <div className="rotated-menu">
-                <a>About</a>
-                <a>Projects</a>
+                <a onClick={scrollToAbout}>About</a>
+                <a onClick={scrollToProject}>Projects</a>
                 <a>Hobbies</a>
             </div>
             <div className="greet">Hi</div>
             <div className="first-half">I'm Dravid</div>
         </div>
         <div className="right">
-            <div className="rotated-menu">To know more about me --></div>
+            <div className="rotated-menu">Know more about me --></div>
         </div>
-        {/* <div className="indicator"></div> */}
         <div className="content">
             <div className="about cards-container vertical-center"
                 ref={introDivRef}>
@@ -79,20 +82,19 @@ const LandingPage = () => {
                     </div>
                 </Card>
             </div>
-            <div className="card-70 right md-center experience card-sm-100">
-                <div className="title">Domains i have worked on</div>
-                <ul>
-                    <li>Front end - Web and App(linux)</li>
-                    <li>Backend - web (RESTAPI)</li>
-                    <li>Cloud - Cloudflare,  Azure</li>
-                    <li>Linux - Virtualization (KVM),Web and app servers and basic system admin</li>
-                    <li>Basic ML - Matlab modals</li>
-                    <li>CI C/D - App deployment  performance testing and basic automation</li>
-                </ul>
+            <Experience ref={projectsDivRef}></Experience>
+            <div className="card-75 experience card-sm-100" >
+                <div className="title">My Hobby projects</div>
+                <div>Whatsapp analyser</div>
+                <div>Letter</div>
+                <div>Tortinental</div>
+                <div>Sudoku solver</div>
+                <div>
+                    <a href="https://github.com/Dravigon/">For more please visit my github--></a>
+                </div>
             </div>
-            <Experience></Experience>
             <div className="card-100 skills card-sm-100">
-                <div className="title">
+                <div className="title" >
                     What Ive worked with
                 </div>
                 <SkillList></SkillList>
